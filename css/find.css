@@ -24,3 +24,8 @@
 #listings {
   min-height: 480px;
 }
+
+.petPic {
+  width: 350px;
+  height: 350px;
+}
