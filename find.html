@@ -42,56 +42,61 @@
             <div class="col s12 blue valign-wrapper">
                 <div class="card red center valign" id="searchCard">
                     <div class="card-title white-text center input-field">Advanced Search</div>
-                    <form class="card-content white-text">
+                    <form id="advSearch" class="card-content white-text">
                         <div class="row">
                             <div class="input-field col s2">
-                                <label class="autocomplete-content" for="search"></label>
-                                <input class="materialize-red lighten-2" id="searchMain" type="search" placeholder="Zip Code">
+                                <input name="location" class="materialize-red lighten-2 input-field"
+                                type="text"
+                                placeholder="Zip Code">
                             </div>
                             <div class="input-field col s2">
-                                <select id="animal">
-                                  <option value="" disable selected>Choose Type of Animal</option>
-                                  <option value="1">Dog</option>
-                                  <option value="2">Cat</option>
-                                  <option value="3">Bird</option>
-                                  <option value="4">Reptile</option>
-                                  <option value="5">Horse</option>
-                                  <option value="6">Pig</option>
-                                  <option value="7">Small and Furry</option>
-                                  <option value="8">Barnyard Animals</option>
+                                <select name="animal" id="animal">
+                                  <option value="" disable selected>-</option>
+                                  <option value="dog">Dog</option>
+                                  <option value="cat">Cat</option>
+                                  <option value="bird">Bird</option>
+                                  <option value="reptile">Reptile</option>
+                                  <option value="horse">Horse</option>
+                                  <option value="pig">Pig</option>
+                                  <option value="smallfurry">Small and Furry</option>
+                                  <option value="barnyard">Barnyard Animals</option>
                                 </select>
-                                <label>Type of Animal</label>
+                                <label>Animal Type</label>
                             </div>
-                            <div class="input-field col s2">
-                                <select id="size">
-                                  <option value="" disable selected>Choose Size of Animal</option>
-                                  <option value="1">Small</option>
-                                  <option value="2">Medium</option>
-                                  <option value="3">Large</option>
-                                  <option value="4">Larger</option>
+                            <div class="input-field col s1">
+                                <select name="size" id="size">
+                                  <option value="" disable selected>-</option>
+                                  <option value="S">Small</option>
+                                  <option value="M">Medium</option>
+                                  <option value="L">Large</option>
+                                  <option value="XL">Larger</option>
                                 </select>
-                                <label>Animal Size</label>
+                                <label>Size</label>
                             </div>
-                            <div class="input-field col s2">
-                                <select id="age">
-                                  <option value="" disable selected>Choose Age of Animal</option>
-                                  <option value="1">Baby</option>
-                                  <option value="2">Young</option>
-                                  <option value="3">Older</option>
-                                  <option value="4">Oldest</option>
+                            <div class="input-field col s1">
+                                <select name="age" id="age">
+                                  <option value="" disable selected>-</option>
+                                  <option value="Baby">Baby</option>
+                                  <option value="Young">Young</option>
+                                  <option value="Adult">Adult</option>
+                                  <option value="Senior">Senior</option>
                                 </select>
-                                <label>Animal Age</label>
+                                <label>Age</label>
                             </div>
-                            <div class="input-field switch col s2">
-                            <label>
-                              Male
-                              <input type="checkbox">
-                              <span class="lever"></span>
-                              Female
-                            </label>
+                            <div class="input-field col s1">
+                                <select name="sex" id="sex">
+                                  <option value="" disable selected>-</option>
+                                  <option value="M">Male</option>
+                                  <option value="F">Female</option>
+                                </select>
+                                <label>Gender</label>
+                            </div>
+                          <div class="col s1">
                           </div>
                           <button id="submit" class="col s1 btn-large waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i>
                           </button>
+                          <div class="col s1">
+                          </div>
                           <button id="clear" class="col s1 btn-large waves-effect waves-light" type="submit" name="action">Clear</button>
                         </div>
                     </form>
