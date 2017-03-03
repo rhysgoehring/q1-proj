@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>rhysCue</title>
+    <link href="https://fonts.googleapis.com/css?family=Syncopate:400,700|Ubuntu:300i,400,500" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
@@ -18,8 +19,8 @@
         <div class="nav-wrapper">
             <a class="brand-logo center" href="index.html">rhysCue</a>
             <ul class="right hide-on-med-and-down">
-                <li class="active"><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
-                <li><a href="find.html"><i class="material-icons right">pets</i>Find your next pet!</a></li>
+                <li class="active"><a class="navLink" href="index.html"><i class="material-icons left">home</i>Home</a></li>
+                <li class="navLink"><a class="navLink" href="find.html"><i class="material-icons right">pets</i>Find your next pet!</a></li>
             </ul>
             <!-- FIX THIS -->
             <!-- <ul class="side-nav">
@@ -27,51 +28,61 @@
           </ul> -->
         </div>
     </nav>
-    <header class="section no-pad-bot">
-        <div class="row">
+    <main>
+
+
+    <header>
+        <div class="row section">
             <div class="col l8 m12 s12 container">
-                <div class="slider">
-                    <ul class="slides">
-                        <li>
-                            <img src="img/comp-dog-cat.jpg" class="img-responsive"/>
+                <div class="slider circle">
+                    <ul class="slides circle">
+                        <li class="slide">
+                            <img src="img/comp-dog-cat.jpg" class="img-responsive circle"/>
                         </li>
-                        <li>
-                            <img src="img/1cooper.jpg" class="img-responsive"/>
+                        <li class="slide">
+                            <img src="img/1cooper.jpg" class="img-responsive circle"/>
                         </li>
-                        <li>
-                            <img src="img/cat-wallpaper-38.jpg" class="img-responsive"/>
+                        <li class="slide">
+                            <img src="img/cat-wallpaper-38.jpg" class="img-responsive circle"/>
                         </li>
-                        <li>
-                            <img src="img/dog-with-toilet-paper-1.jpg" class="img-responsive"/>
+                        <li class="slide">
+                            <img src="img/dog-with-toilet-paper-1.jpg" class="img-responsive circle"/>
                         </li>
-                        <li>
-                            <img src="img/catPickle.jpg" class="img-responsive" />
+                        <li class="slide">
+                            <img src="img/catPickle.jpg" class="img-responsive circle" />
                         </li>
-                        <li>
-                            <img src="img/cooper2.jpg" class="img-responsive" />
+                        <li class="slide">
+                            <img src="img/cooper2.jpg" class="img-responsive circle" />
                         </li>
-                        <li>
-                            <img src="img/savannah-cat1.jpg" class="img-responsive" />
+                        <li class="slide">
+                            <img src="img/savannah-cat1.jpg" class="img-responsive circle" />
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col l4 m12 s12">
-              <div class="card large">
-                <p>
-                Spicy jalapeno bacon ipsum dolor amet kevin strip steak meatball spare ribs fatback porchetta corned beef doner venison picanha andouille. Swine strip steak pork belly jowl. Kielbasa corned beef sirloin pork porchetta capicola tongue ground round short loin leberkas. Beef ribs meatloaf filet mignon turkey tongue leberkas meatball sausage short ribs prosciutto strip steak shankle ball tip tail venison. Pig alcatra cupim turducken beef ribs biltong boudin prosciutto. Landjaeger corned beef frankfurter shoulder.
-                </p>
-                <p>
-                Pork chop chicken sunt jowl pork brisket, ut voluptate salami tongue. Non prosciutto andouille pastrami tenderloin sint sirloin eu laboris tri-tip ham drumstick. Exercitation dolore minim, chicken cupidatat in aute commodo kielbasa. Leberkas anim spare ribs ipsum andouille, sed nulla nostrud eiusmod kevin. Ham hock pork chop est, landjaeger jerky quis labore tongue commodo alcatra ut pastrami pancetta.
-                </p>
-                <p>
-                Short ribs dolore veniam cupidatat ex eiusmod, esse shank. Shoulder flank consequat ipsum, tail magna drumstick ground round. Beef ribs magna consectetur doner incididunt filet mignon venison beef. Chuck reprehenderit consequat capicola adipisicing ham t-bone short loin boudin labore. Pastrami cupidatat pork belly chicken pork, in turducken laboris ut.
-                </p>
+              <div class="card z-depth-3" id="infoCard">
+                <div class="card-content">
+                  <span class="card-title">Our Mission</span>
+                  <ul>
+                    <li>
+                      rhysCue was founded with a simple task in mind: to make it easier for you to not only find your next pet, but to also vastly improve the life of an animal that has had a difficult past.
+                    </li>
+                    <br />
+                    <li>
+                      Rather than being guilt tripped by sobby commercials reserved for late night television, we allow you to think about the bright future your new pet will have so it can forget about it's less than bright past.
+                    </li>
+                    <br />
+                    <li>
+                      It's never been easier to find your next sidekick - regardless of what type of pet you're looking for. Searching for local shelters or for a specific pet has never been easier, <a id="findLink" href="find.html"> give it a shot by clicking here!</a> </li>
+                  </ul>
+                </div>
               </div>
             </div>
         </div>
     </header>
-    <footer class="page-footer">
+    </main>
+    <footer class="page-footer-sticky bottom">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8">
@@ -80,8 +91,8 @@
                 </div>
                 <div class="col s12 m4">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a class="active" href="find.html">Find a pet</a></li>
+                        <li><a href="index.html" class="bottomLink active">Home</a></li>
+                        <li><a class="bottomLink" href="find.html">Find a pet</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,24 +1,36 @@
-#search {
-  color: #fff;
+input#search {
   font-size: 15px;
   width: 50%;
   height: 100%;
+  color: #D7F75B;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #searchIcon{
   font-size: 25px;
   padding: 15px 10px;
-  color: #fff;
+  color: #D7F75B;
 }
+
 #searchForm{
   padding: 0 10px;
+  color: #472C1B;
 }
 
 #searchCard{
   width: 100%;
+  background-color: #D19C1D;
+  color: #472C1B;
 }
+
 #submit {
   position: relative;
+  color: #D7F75B;
+  background-color: #472C1B;
+}
+#clear{
+  color: #D7F75B;
+  background-color: #472C1B;
 }
 
 #listings {
@@ -26,6 +38,13 @@
 }
 
 .petPic {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
+  float: right;
+}
+#advSearch label {
+  color: #472C1B;
+}
+#zip2{
+  color: #472C1B;
 }

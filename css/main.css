@@ -1,1 +1,60 @@
+div.nav-wrapper {
+  background-color: #472C1B;
+  color: #D7F75B;
+}
 
+a.brand-logo.center{
+  color: #D7F75B;
+  font-family: 'Syncopate', sans-serif;
+}
+
+a.navLink{
+  color: #D7F75B;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url('../img/tileable-img_0062-verydark.png');
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer-sticky {
+  background-color: #472C1B;
+  color: #D7F75B;
+}
+
+div.card#infoCard{
+  margin-top: 40px;
+  background-color: #D19C1D;
+  border-radius: 10%;
+  font-family: 'Ubuntu', sans-serif;
+}
+span.card-title {
+  text-decoration: underline;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  letter-spacing: 10px;
+  font-variant: small-caps;
+  text-align: center;
+}
+#findLink{
+  color: #fff;
+}
+.bottomLink{
+  color: #D7F75B;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+div.slider.circle{
+  margin-top: 45px;
+}
+
+img.circle{
+  border: 2px solid #472C1B;
+}

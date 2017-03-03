@@ -5717,7 +5717,7 @@ label {
    ========================================================================== */
 /* Style Placeholders */
 ::-webkit-input-placeholder {
-  color: #d1d1d1;
+  color: #D7F75B;
 }
 
 :-moz-placeholder {
@@ -7747,7 +7747,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .slider .indicators .indicator-item.active {
-  background-color: #4CAF50;
+  background-color: #D7F75B;
 }
 
 .carousel {

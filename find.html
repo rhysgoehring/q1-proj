@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>rhysCue: Find a Pet</title>
+    <link href="https://fonts.googleapis.com/css?family=Syncopate:400,700|Ubuntu:300i,400,500" rel="stylesheet">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/find.css" />
@@ -20,13 +21,13 @@
             <div class="nav-wrapper">
                 <a class="brand-logo center" href="index.html">rhysCue</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="index.html"><i class="material-icons left">home</i>Home</a></li>
-                    <li class="active"><a href="find.html"><i class="material-icons right">pets</i>Find your next pet!</a></li>
+                    <li><a href="index.html" class="navLink"><i class="material-icons left">home</i>Home</a></li>
+                    <li class="active"><a href="find.html" class="navLink"><i class="material-icons right">pets</i>Find your next pet!</a></li>
                 </ul>
                 <form class="container left" id="quickSearch">
                     <div class="input-field">
                         <label class="label-icon autocomplete-content" for="search"><i id="searchIcon"class="material-icons prefix">search</i></label>
-                        <input class="materialize-red lighten-2" id="search" type="search" placeholder="Quick Search: Enter ZIP to find shelters near you">
+                        <input id="search" type="search" placeholder="Quick Search: Enter ZIP to find shelters near you">
                     </div>
                 </form>
             </div>
@@ -39,14 +40,14 @@
     </header>
     <main>
         <div class="row">
-            <div class="col s12 blue valign-wrapper">
-                <div class="card red center valign" id="searchCard">
-                    <div class="card-title white-text center input-field">Advanced Search</div>
-                    <form id="advSearch" class="card-content white-text">
+            <div class="col s12 valign-wrapper">
+                <div class="card center valign" id="searchCard">
+                    <div class="card-title center input-field">Advanced Search</div>
+                    <form id="advSearch" class="card-content">
                         <div class="row">
                             <div class="input-field col s2">
-                                <input name="location" class="materialize-red lighten-2 input-field"
-                                type="text"
+                                <input name="location" class="input-field"
+                                type="text" id="zip2"
                                 placeholder="Zip Code">
                             </div>
                             <div class="input-field col s2">
@@ -103,10 +104,10 @@
                 </div>
             </div>
         </div>
-        <div class="row section materialize-red lighten-2" id="listings">
+        <div class="row section" id="listings">
         </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer-sticky bottom">
         <div class="container">
             <div class="row">
                 <div class="col s12 m8">
@@ -115,8 +116,8 @@
                 </div>
                 <div class="col s12 m4">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a class="active" href="find.html">Find a pet</a></li>
+                        <li><a href="index.html" class="bottomLink">Home</a></li>
+                        <li><a class="bottomLink active" href="find.html">Find a pet</a></li>
                     </ul>
                 </div>
             </div>
@@ -126,7 +127,7 @@
                 © 2017 rhysCue
             </div>
         </div>
-    </footer>
+   </footer>
 </body>
 
 </html>
