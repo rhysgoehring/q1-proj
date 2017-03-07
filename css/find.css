@@ -48,3 +48,13 @@ input#search {
 #zip2{
   color: #472C1B;
 }
+
+.shelterCard {
+  background-color: #D19C1D;
+  color: #472C1B;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.advSearchBtn{
+  padding: 0 5px;
+}

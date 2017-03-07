@@ -1,6 +1,7 @@
 $(document).ready(function() {
   'use strict';
-  $('.modal').modal();
+
+  // $('.modal').modal();
   $("#animal").material_select();
   $("#size").material_select();
   $("#age").material_select();
@@ -18,9 +19,9 @@ $(document).ready(function() {
     clearListings();
 
     for (const shelter of shelters) {
-      const $sCol = $('<div>').addClass('col s4');
-      const $sCard = $('<div>').addClass('card small hoverable');
-      const $sTitle = $('<h6>').addClass('card-title truncate');
+      const $sCol = $('<div>').addClass('col s1 l4 m1');
+      const $sCard = $('<div>').addClass('card shelterCard hoverable');
+      const $sTitle = $('<h6>').addClass('card-title center truncate shelterCardTitle');
       const $sList = $('<ul>').addClass('card-content');
       $sList.append(`<li>City: ${shelter.city}</li><li>Phone #: ${shelter.phone}</li><li>Email: ${shelter.email}</li>`);
       $sTitle.text(shelter.name);
