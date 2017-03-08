@@ -55,6 +55,22 @@ input#search {
   font-family: 'Ubuntu', sans-serif;
 }
 
-.advSearchBtn{
-  padding: 0 5px;
+.shelterCard ul li a {
+  color: #D7F75B;
+
+}
+
+.petCard {
+  background-color: #D19C1D;
+  color: #472C1B;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.contactBtn {
+  background-color: #472C1B;
+  color: #D7F75B;
+}
+
+#mobilePaw{
+  color: #D7F75B;
 }

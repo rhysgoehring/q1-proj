@@ -1,7 +1,7 @@
 $(document).ready(function() {
   'use strict';
 
-  // $('.modal').modal();
+
   $("#animal").material_select();
   $("#size").material_select();
   $("#age").material_select();
@@ -19,11 +19,11 @@ $(document).ready(function() {
     clearListings();
 
     for (const shelter of shelters) {
-      const $sCol = $('<div>').addClass('col s1 l4 m1');
+      const $sCol = $('<div>').addClass('col l4 m12 s12');
       const $sCard = $('<div>').addClass('card shelterCard hoverable');
       const $sTitle = $('<h6>').addClass('card-title center truncate shelterCardTitle');
       const $sList = $('<ul>').addClass('card-content');
-      $sList.append(`<li>City: ${shelter.city}</li><li>Phone #: ${shelter.phone}</li><li>Email: ${shelter.email}</li>`);
+      $sList.append(`<li>City: ${shelter.city}</li><li>Phone #: ${shelter.phone}</li><li>Email:<a href="mailto:${shelter.email}"> ${shelter.email}</a></li><li>Location: Shelter/adoption locations are unlisted here for privacy reasons, please e-mail the shelter for more information</li>`);
       $sTitle.text(shelter.name);
       $sCard.append($sTitle, $sList);
       $sCol.append($sCard);
@@ -34,57 +34,34 @@ $(document).ready(function() {
   const renderPets = (pets) => {
     // console.log("inside render pets", pets);
     // console.log("inside render shelters", shelters);
+    clearListings();
     shelters = [];
-    console.log($('#listings'));
     for (let pet of pets) {
-      let $pCol = $('<div class="col s4">');
-      let $pCard = $('<div>').addClass('card large hoverable');
-      let $pTitle = $('<h6>').addClass('card-title center truncate');
+      let $pCol = $('<div class="col l4 m12 s12">');
+      let $pCard = $('<div>').addClass('card medium hoverable petCard');
+      let $pTitle = $('<h6>').addClass('card-title center truncate flex-text');
       $pTitle.text(`${pet.name}`);
       let $pContent = $("<div>").addClass("card-content")
-      let $pList = $('<ul>').addClass('card-content center');
-      $pList.append(`<li>Animal: ${pet.animal}</li><li>Age:  ${pet.age}</li><li>Sex: ${pet.sex}</li><li>Breed: ${pet.breed}`);
+      let $pList = $('<ul>').addClass('card-content center left-align');
+      $pList.append(`<li>Animal: ${pet.animal}</li><li>Age:  ${pet.age}</li><li>Sex: ${pet.sex}</li><li>Breed: ${pet.breed}<li>City: ${pet.city}</li><li>Zip: ${pet.zipCode}</li>`);
       let $pImg = $('<img>').addClass("petPic center img-responsive");
       $pImg.attr({
         src: pet.pic,
         alt: pet.name
       });
+
       const $action = $("<div class='card-action row'>")
-      const $contactBtn = $(`<button data-target=${pet.id} id="btn-${pet.id}" class="waves-effect waves-light btn modal-trigger col s6" contactBtn>`);
+      const $contactBtn = $(`<a href="mailto:${pet.email}" class="waves-effect waves-light btn modal-trigger col s12 contactBtn">`);
 
-      $contactBtn.text('Contact Owner');
-      const $descBtn = $('<button class="waves-effect waves-light btn col s6" id="descBtn">');
+      $contactBtn.text('Email Owner');
 
-      $descBtn.text('More Info');
-      $action.append($contactBtn, $descBtn);
+      $action.append($contactBtn);
       $pContent.append($pImg, $pList);
       $pCard.append($pTitle, $pContent, $action);
       // console.log("$pTitle", $pTitle[0]);
       // console.log("$pContent", $pContent[0]);
-
-      let $cModal = $('<div>').addClass('modal').attr('id', pet.id);
-      let $cModalContent = $("<div>").addClass("modal-content");
-      let $cModalHeader = $("<h4>").text(pet.name);
-      let $cModalList = $('<ul class="modal-content">');
-      $cModalList.append(`<li>City: ${pet.city}</li><li>Zip Code:  ${pet.zipCode}</li><li>email: ${pet.email}</li><li>Phone: ${pet.phone}`);
-
-      $cModalContent.append($cModalHeader, $cModalList);
-      $cModal.append($cModalContent);
-
-      $pCol.append($pCard, $cModal);
-
+      $pCol.append($pCard);
       $('#listings').append($pCol);
-
-      $('#btn-' + pet.id).click(function(event){
-        event.preventDefault();
-        var target = $(event.target).data('target');
-        console.log("you clicked: ", $(event.target).data('target'));
-        $(`#${target}`).modal.open();
-
-      })
-
-
-
     }
   }
 
@@ -104,18 +81,17 @@ $(document).ready(function() {
         url: `http://api.petfinder.com/shelter.find?key=b61b1dc779a15824738a2ab95fe28ed7&location=${zip}&format=json`,
         dataType: 'jsonp',
         success: function(data) {
-          for (let i = 0; i < data.petfinder.shelters.shelter.length; i++) {
+          let shelterData = data.petfinder.shelters;
+          for (let i = 0; i < shelterData.shelter.length; i++) {
             const shelterObj = {
-              id: data.petfinder.shelters.shelter[i].id.$t,
-              name: data.petfinder.shelters.shelter[i].name.$t,
-              email: data.petfinder.shelters.shelter[i].email.$t,
-              phone: data.petfinder.shelters.shelter[i].phone.$t,
-              addr1: data.petfinder.shelters.shelter[i].address1.$t,
-              addr2: data.petfinder.shelters.shelter[i].address2.$t,
-              city: data.petfinder.shelters.shelter[i].city.$t,
-              country: data.petfinder.shelters.shelter[i].country.$t,
-              latitude: data.petfinder.shelters.shelter[i].latitude.$t,
-              longitude: data.petfinder.shelters.shelter[i].longitude.$t
+              id: shelterData.shelter[i].id.$t,
+              name: shelterData.shelter[i].name.$t,
+              email: shelterData.shelter[i].email.$t,
+              phone: shelterData.shelter[i].phone.$ || 'Unavailable',
+              addr1: shelterData.shelter[i].address1.$t,
+              addr2: shelterData.shelter[i].address2.$t,
+              city: shelterData.shelter[i].city.$t,
+              country: shelterData.shelter[i].country.$t
             };
             shelters.push(shelterObj);
           }
@@ -135,10 +111,20 @@ $(document).ready(function() {
     shelters = [];
     pets = [];
 
+
+
     let queryStart = `http://api.petfinder.com/pet.find?key=b61b1dc779a15824738a2ab95fe28ed7&format=json&`
     let queryOptions = $("#advSearch").serialize();
     let query = queryStart + queryOptions;
     // console.log(query);
+    let zipSel = $("#zipSel").val();
+    let animalSel = $("#animal").val();
+    let sizeSel = $("#size").val();
+    let ageSel = $("#age").val();
+    let sexSel = $("#sex").val();
+    if (zipSel === '' || animalSel === '' || sizeSel === '' || ageSel === '' || sexSel === '') {
+      alert("Please fill all required fields");
+    } else {
     $.ajax({
       method: 'GET',
       url: query,
@@ -156,22 +142,22 @@ $(document).ready(function() {
           }
         }
         // console.log('ajax success, pet sex is: ', petData.petfinder.pets.pet[0].sex.$t)
-        for (let j = 0; j < petData.petfinder.pets.pet.length; j++) {
-          let pet = petData.petfinder.pets.pet[j]
-          console.log(pet, pet.sex);
+        let petsData = petData.petfinder.pets;
+        for (let j = 0; j < petsData.pet.length; j++) {
+          // console.log(pet, pet.sex);
           const petObj = {
-            name: petData.petfinder.pets.pet[j].name.$t,
-            animal: petData.petfinder.pets.pet[j].animal.$t,
-            age: petData.petfinder.pets.pet[j].age.$t,
-            description: petData.petfinder.pets.pet[j].description.$t,
-            sex: petData.petfinder.pets.pet[j].sex.$t || 'unknown',
-            pic: petData.petfinder.pets.pet[j].media.photos.photo[2].$t || 'No Pic Available',
-            breed: getBreed(petData.petfinder.pets.pet[j].breeds),
-            id: petData.petfinder.pets.pet[j].id.$t,
-            city: petData.petfinder.pets.pet[j].contact.city.$t,
-            email: petData.petfinder.pets.pet[j].contact.email.$t,
-            zipCode: petData.petfinder.pets.pet[j].contact.zip.$t,
-            phone: petData.petfinder.pets.pet[j].contact.phone.$t
+            name: petsData.pet[j].name.$t,
+            animal: petsData.pet[j].animal.$t,
+            age: petsData.pet[j].age.$t,
+            description: petsData.pet[j].description.$t,
+            sex: petsData.pet[j].sex.$t || 'unknown',
+            pic: petsData.pet[j].media.photos.photo[2].$t || 'No Pic Available',
+            breed: getBreed(petsData.pet[j].breeds),
+            id: petsData.pet[j].id.$t,
+            city: petsData.pet[j].contact.city.$t,
+            email: petsData.pet[j].contact.email.$t || 'unknown',
+            zipCode: petsData.pet[j].contact.zip.$t,
+            phone: petsData.pet[j].contact.phone.$t
           };
           pets.push(petObj);
         }
@@ -182,9 +168,6 @@ $(document).ready(function() {
         console.log('error logging data')
       }
     })
-
+    }
   })
-
-
-
 });
